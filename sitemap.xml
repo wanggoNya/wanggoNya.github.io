@@ -1,88 +1,122 @@
-<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
 <url>
-<loc>http://localhost:4000/posts/text-and-typography/</loc>
-<lastmod>2019-08-08T12:33:00+09:00</lastmod>
+  <loc>https://wanggonya.github.io/</loc>
+  <lastmod>2022-12-10T13:26:47+00:00</lastmod>
+  <priority>1.00</priority>
 </url>
 <url>
-<loc>http://localhost:4000/posts/write-a-new-post/</loc>
-<lastmod>2019-08-08T15:10:00+09:00</lastmod>
+  <loc>https://wanggonya.github.io/categories/</loc>
+  <lastmod>2022-12-10T13:26:47+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:4000/posts/getting-started/</loc>
-<lastmod>2019-08-09T21:55:00+09:00</lastmod>
+  <loc>https://wanggonya.github.io/tags/</loc>
+  <lastmod>2022-12-10T13:26:47+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:4000/posts/customize-the-favicon/</loc>
-<lastmod>2019-08-11T01:34:00+09:00</lastmod>
+  <loc>https://wanggonya.github.io/archives/</loc>
+  <lastmod>2022-12-10T13:26:47+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:4000/posts/enable-google-pv/</loc>
-<lastmod>2021-01-04T08:32:00+09:00</lastmod>
+  <loc>https://wanggonya.github.io/about/</loc>
+  <lastmod>2022-12-10T13:26:47+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:4000/posts/welcome-to-jekyll/</loc>
-<lastmod>2022-12-10T20:43:20+09:00</lastmod>
+  <loc>https://wanggonya.github.io/posts/getting-started/</loc>
+  <lastmod>2022-12-10T13:26:47+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:4000/categories/</loc>
-<lastmod>2022-12-10T22:07:09+09:00</lastmod>
+  <loc>https://wanggonya.github.io/tags/favicon/</loc>
+  <lastmod>2022-12-10T13:26:47+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:4000/tags/</loc>
-<lastmod>2022-12-10T22:07:09+09:00</lastmod>
+  <loc>https://wanggonya.github.io/tags/getting-started/</loc>
+  <lastmod>2022-12-10T13:26:47+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:4000/archives/</loc>
-<lastmod>2022-12-10T22:07:09+09:00</lastmod>
+  <loc>https://wanggonya.github.io/tags/google-analytics/</loc>
+  <lastmod>2022-12-10T13:26:47+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:4000/about/</loc>
-<lastmod>2022-12-10T22:07:09+09:00</lastmod>
+  <loc>https://wanggonya.github.io/tags/pageviews/</loc>
+  <lastmod>2022-12-10T13:26:47+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:4000/about/</loc>
+  <loc>https://wanggonya.github.io/tags/typography/</loc>
+  <lastmod>2022-12-10T13:26:47+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:4000/</loc>
+  <loc>https://wanggonya.github.io/tags/writing/</loc>
+  <lastmod>2022-12-10T13:26:47+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:4000/</loc>
+  <loc>https://wanggonya.github.io/categories/blogging/</loc>
+  <lastmod>2022-12-10T13:26:47+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-<loc>http://localhost:4000/tags/typography/</loc>
+  <loc>https://wanggonya.github.io/categories/demo/</loc>
+  <lastmod>2022-12-10T13:26:47+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-<loc>http://localhost:4000/tags/writing/</loc>
+  <loc>https://wanggonya.github.io/categories/tutorial/</loc>
+  <lastmod>2022-12-10T13:26:47+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-<loc>http://localhost:4000/tags/getting-started/</loc>
+  <loc>https://wanggonya.github.io/categories/jekyll/</loc>
+  <lastmod>2022-12-10T13:26:47+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-<loc>http://localhost:4000/tags/favicon/</loc>
+  <loc>https://wanggonya.github.io/categories/update/</loc>
+  <lastmod>2022-12-10T13:26:47+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-<loc>http://localhost:4000/tags/google-analytics/</loc>
+  <loc>https://wanggonya.github.io/posts/welcome-to-jekyll/</loc>
+  <lastmod>2022-12-10T13:26:47+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-<loc>http://localhost:4000/tags/pageviews/</loc>
+  <loc>https://wanggonya.github.io/posts/enable-google-pv/</loc>
+  <lastmod>2022-12-10T13:26:47+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-<loc>http://localhost:4000/categories/blogging/</loc>
+  <loc>https://wanggonya.github.io/posts/customize-the-favicon/</loc>
+  <lastmod>2022-12-10T13:26:47+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-<loc>http://localhost:4000/categories/demo/</loc>
+  <loc>https://wanggonya.github.io/posts/write-a-new-post/</loc>
+  <lastmod>2022-12-10T13:26:47+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-<loc>http://localhost:4000/categories/tutorial/</loc>
+  <loc>https://wanggonya.github.io/posts/text-and-typography/</loc>
+  <lastmod>2022-12-10T13:26:47+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
-<url>
-<loc>http://localhost:4000/categories/jekyll/</loc>
-</url>
-<url>
-<loc>http://localhost:4000/categories/update/</loc>
-</url>
-<url>
-<loc>http://localhost:4000/google4b5fde69d90a70aa.html</loc>
-<lastmod>2022-12-10T22:00:51+09:00</lastmod>
-</url>
+
+
 </urlset>
