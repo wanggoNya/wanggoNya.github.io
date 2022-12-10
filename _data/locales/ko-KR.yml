@@ -10,16 +10,16 @@ layout:
 # The tabs of sidebar
 tabs:
   # format: <filename_without_extension>: <value>
-  home: 홈
-  categories: 카테고리
-  tags: 태그
-  archives: 아카이브
-  about: 정보
+  home: home
+  categories: categories
+  tags: tags
+  archives: archives
+  about: about
 
 # the text displayed in the search bar & search results
 search:
-  hint: 검색
-  cancel: 취소
+  hint: search
+  cancel: cancel
   no_results: 검색 결과가 없습니다.
 
 panel:

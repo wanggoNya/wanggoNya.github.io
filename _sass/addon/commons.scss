@@ -549,7 +549,7 @@ img[data-src] {
   border: 1px solid !important;
   padding: 1px 3px;
   border-radius: 3px;
-  color: var(--link-color);
+  color: var();
 
   &:focus {
     box-shadow: none;
@@ -706,12 +706,12 @@ $sidebar-display: "sidebar-display";
       font-weight: 900;
       font-size: 1.5rem;
       letter-spacing: 0.5px;
-      color: rgba(134, 133, 133, 0.99);
+      color: #ffffffc3;
     }
   }
 
   .site-subtitle {
-    font-size: 95%;
+    font-size: 84%;
     color: var(--sidebar-muted-color);
     line-height: 1.25rem;
     word-spacing: 1px;
@@ -939,7 +939,7 @@ $sidebar-display: "sidebar-display";
 }
 
 #search-cancel { /* 'Cancel' link */
-  color: var(--link-color);
+  color: var();
   margin-left: 1rem;
   display: none;
 
