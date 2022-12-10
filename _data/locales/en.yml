@@ -14,7 +14,7 @@ tabs:
   categories: Categories
   tags: Tags
   archives: Archives
-  about: About
+  about: About | Notice
 
 # the text displayed in the search bar & search results
 search:
@@ -52,8 +52,8 @@ notification:
 # ----- Posts related labels -----
 
 post:
-  written_by: By
-  posted: Posted
+  written_by: 
+  posted: 'on'
   updated: Updated
   words: words
   pageview_measure: views

@@ -261,9 +261,9 @@ img[data-src] {
     margin: 0 0.35rem 0.5rem 0;
 
     &:hover {
-      background-color: #2a408e;
-      border-color: #2a408e;
-      color: #ffffff;
+      background-color: #fcb83cb5;
+      border-color: #fcb83cb5;
+      color: #000000;
       transition: none;
     }
   }
@@ -293,6 +293,14 @@ img[data-src] {
 
     color: inherit;
   }
+}
+
+.author-post {
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+.post-wrap-bar {
 }
 
 .footnotes > ol {
@@ -890,6 +898,7 @@ $sidebar-display: "sidebar-display";
 
   [data-topbar-visible="false"] & {
     top: -$topbar-height; /* same as topbar height. */
+
   }
 }
 
