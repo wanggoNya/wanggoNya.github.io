@@ -14,17 +14,46 @@ tail_includes:
 <div class="post-meta text-muted">
     <!-- published date -->
     <span>
+
+      {% if page.author %}
+      {% assign authors = page.author %}
+    {% elsif page.authors %}
+      {% assign authors = page.authors %}
+    {% endif %}
+
+    {{ site.data.locales[site.lang].post.written_by }}
+
+    <em>
+    {% if authors %}
+      {% for author in authors %}
+        <a class="author-post" href="{{ site.data.authors[author].url }}">{{ site.data.authors[author].name }}</a>
+        {% unless forloop.last %}</em>, <em>{% endunless %}
+      {% endfor %}
+    {% else %}
+      <a href="{{ site.social.links[0] }}">{{ site.social.name }}</a>
+    {% endif %}
+    </em>
+
+
+
       {{ site.data.locales[site.lang].post.posted }}
       {% include datetime.html date=page.date tooltip=true %}
-    </span>
+
+
+
+
 
     <!-- lastmod date -->
     {% if page.last_modified_at %}
-    <span>
       {{ site.data.locales[site.lang].post.updated }}
       {% include datetime.html date=page.last_modified_at tooltip=true %}
-    </span>
     {% endif %}
+
+
+
+
+    </span>
+
 
   {% if page.image %}
     {% capture bg %}
@@ -57,24 +86,7 @@ tail_includes:
   <div class="d-flex justify-content-between">
     <!-- author(s) -->
     <span>
-      {% if page.author %}
-        {% assign authors = page.author %}
-      {% elsif page.authors %}
-        {% assign authors = page.authors %}
-      {% endif %}
 
-      {{ site.data.locales[site.lang].post.written_by }}
-
-      <em>
-      {% if authors %}
-        {% for author in authors %}
-          <a href="{{ site.data.authors[author].url }}">{{ site.data.authors[author].name }}</a>
-          {% unless forloop.last %}</em>, <em>{% endunless %}
-        {% endfor %}
-      {% else %}
-        <a href="{{ site.social.links[0] }}">{{ site.social.name }}</a>
-      {% endif %}
-      </em>
     </span>
 
     <div>

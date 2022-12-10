@@ -3,6 +3,8 @@
 icon: fas fa-info-circle
 order: 4
 ---
+# **wanggoNya 🍊**
 
-> Add Markdown syntax content to file `_tabs/about.md`{: .filepath } and it will show up on this page.
-{: .prompt-tip }
+**🧑‍💻Sooyeon Kim**  
+🎓BS in Geology, _KNU, South Korea_  
+🧑‍💻Studying Web programming, _KoreaIT Class, South Korea_

@@ -3,9 +3,9 @@
 # ----- Commons label -----
 
 layout:
-  post: 포스트
-  category: 카테고리
-  tag: 태그
+  post: post
+  category: category
+  tag: tag
 
 # The tabs of sidebar
 tabs:
@@ -23,8 +23,8 @@ search:
   no_results: 검색 결과가 없습니다.
 
 panel:
-  lastmod: 최근 업데이트
-  trending_tags: 인기 태그
+  lastmod: Recent Update
+  trending_tags: Trending Tags
   toc: 바로가기
 
 copyright:
@@ -35,7 +35,7 @@ copyright:
     link: https://creativecommons.org/licenses/by/4.0/
 
   # Displayed in the footer
-  brief: 일부 권리 보유
+  brief: Some rights reserved.
   verbose: >-
     명시되지 않는 한 이 사이트의 블로그 게시물은 작성자의
     Creative Commons Attribution 4.0 International(CC BY 4.0) 라이선스에 따라 사용이 허가되었습니다.
@@ -82,5 +82,5 @@ df:
 
 # categories page
 categories:
-  category_measure: 카테고리
-  post_measure: 포스트
+  category_measure: category
+  post_measure: post
