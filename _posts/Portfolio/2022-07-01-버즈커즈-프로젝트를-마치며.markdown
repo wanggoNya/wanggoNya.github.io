@@ -1,5 +1,5 @@
 ---
-title: 버스커즈 프로젝트를 마치며
+title: 프로젝트 | 버스커즈 프로젝트를 마치며
 author: cotes
 date: 2022-07-01 20:55:00 +0800
 categories: [Portfolio, Buskerz]
