@@ -7,4 +7,4 @@ order: 4
 
 **🧑‍💻Sooyeon Kim**  
 🎓BS in Geology, _KNU, South Korea_  
-🧑‍💻Studying Web programming, _KoreaIT Class, South Korea_
+🧑‍💻Certificated of <i>Java & Python-based AI development and application process</i>, <i>KoreaIT Class, South Korea</i>
