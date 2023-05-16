@@ -1,8 +1,7 @@
 ---
-title: "Hi all! I'm OOOOOO👋🏻"
+title: "Hi all! I'm wanggoNya"
 permalink: /about/
 layout: single
 comments: false
 ---
-
-본인 소개 여기에 입력
+![profile_with_cat](https://github.com/wanggoNya/wanggoNya.github.io/assets/96973332/63098cb-ac45-4388-a059-010358b77adf)
