@@ -1,6 +1,6 @@
 ---
 title: '[Kubernetes] 쿠버네티스 소개, 왜 쿠버네티스를 사용해야 하는가'
-excerpt: "본문의 주요 내용을 여기에 입력하세요"
+excerpt: "쿠버네티스 Introduction, 기초 Object에 대하여, 그리고 실습"
 
 categories:
 categories:
