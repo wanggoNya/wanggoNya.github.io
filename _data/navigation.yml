@@ -1,19 +1,19 @@
 # main links
 main:
   - title: "Home"
-    url: https://choiiis.github.io/
+    url: https://wanggonya.github.io/
 
   - title: "About"
     url: /about/
 
   - title: "GitHub"
-    url: https://github.com/choiiis
+    url: https://github.com/wanggoNya
 
   # - title: "Projects"
   #   url: /projects/
 
   # - title: "Categories"
-  #   url: /categories/
+  #  url: /categories/
 
 # sidebar navigation (categories)
 # 2022.02.15 sidebar update : simple ver.
