@@ -18,6 +18,10 @@ main:
 # sidebar navigation (categories)
 # 2022.02.15 sidebar update : simple ver.
 categories:
+  - title: "Algorithm"
+    url: /categories/algorithm/
+  - title: "Cloud"
+    url: /categories/cloud/
   - title: "C/Rust"
     url: /categories/crust/
   - title: "Linux"
@@ -26,7 +30,7 @@ categories:
     url: /categories/network/
   - title: "OS"
     url: /categories/os/
-  - title: "Cloud"
-    url: /categories/cloud/
-  - title: "Algorithm"
-    url: /categories/algorithm/
+  - title: "Security"
+    url: /categories/security/
+  - title: "Etc"
+    url: /categories/etc/
