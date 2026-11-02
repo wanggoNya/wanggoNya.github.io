@@ -43,6 +43,13 @@ export class GitHub {
       try {
         msg = (await res.json()).message || msg;
       } catch {}
+      if (res.status === 403 && /not accessible by personal access token/i.test(msg)) {
+        msg = "토큰에 쓰기 권한이 없어요. GitHub 토큰 설정에서 Contents 권한을 'Read and write'로 바꿔 주세요.";
+      } else if (res.status === 401) {
+        msg = "토큰이 만료됐거나 올바르지 않아요. ⚙에서 다시 연결해 주세요.";
+      } else if (res.status === 404) {
+        msg = `저장소(${this.repo})를 찾을 수 없어요. 토큰의 Repository access에 이 저장소가 포함돼 있는지 확인해 주세요.`;
+      }
       const err = new Error(`GitHub ${res.status}: ${msg}`);
       err.status = res.status;
       throw err;
@@ -52,6 +59,11 @@ export class GitHub {
 
   repoInfo() {
     return this.req("");
+  }
+
+  // 빈 blob을 하나 만들어 쓰기 권한 확인 (어떤 커밋에도 연결되지 않아 저장소에 영향 없음)
+  checkWrite() {
+    return this.req("/git/blobs", { method: "POST", body: { content: "", encoding: "utf-8" } });
   }
 
   // _posts 아래 모든 마크다운 파일 (path, sha)

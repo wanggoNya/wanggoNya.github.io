@@ -1,0 +1,100 @@
+{% comment %} 글 하단 (티스토리 스타일): 공유·구독 → 같은 카테고리 다른 글 → 태그 → 관련글 → 블로그 소개 {% endcomment %}
+{% assign cat = page.categories | first %}
+{% assign cat_posts = site.categories[cat] %}
+
+<div class="post-footer">
+  <div class="post-footer__actions">
+    <button type="button" class="post-footer__btn" data-share-copy aria-label="링크 복사">
+      <i class="fas fa-link" aria-hidden="true"></i> <span>링크 복사</span>
+    </button>
+    <button type="button" class="post-footer__btn" data-share-native hidden aria-label="공유">
+      <i class="fas fa-share-alt" aria-hidden="true"></i> <span>공유</span>
+    </button>
+    <a class="post-footer__btn" href="{{ '/feed.xml' | relative_url }}" target="_blank" rel="noopener">구독하기</a>
+  </div>
+
+  {% if cat_posts and cat_posts.size > 1 %}
+    {% comment %} 지금 글을 가운데에 두고 앞뒤 글 5개 {% endcomment %}
+    {% assign idx = 0 %}
+    {% for p in cat_posts %}{% if p.url == page.url %}{% assign idx = forloop.index0 %}{% break %}{% endif %}{% endfor %}
+    {% assign start = idx | minus: 2 %}
+    {% assign max_start = cat_posts.size | minus: 5 %}
+    {% if start > max_start %}{% assign start = max_start %}{% endif %}
+    {% if start < 0 %}{% assign start = 0 %}{% endif %}
+    <section class="post-footer__box">
+      <h3 class="post-footer__box-title">
+        {% assign cat_url = cat | remove: "/" | slugify | prepend: "/categories/" | append: "/" %}
+        '<a href="{{ cat_url | relative_url }}">{{ cat }}</a>' 카테고리의 다른 글
+      </h3>
+      <ul class="post-footer__list">
+        {% for p in cat_posts offset: start limit: 5 %}
+          <li{% if p.url == page.url %} class="is-current"{% endif %}>
+            <a href="{{ p.url | relative_url }}">{{ p.title | escape_once }}</a>
+            <time datetime="{{ p.date | date_to_xmlschema }}">{{ p.date | date: "%Y.%m.%d" }}</time>
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+  {% endif %}
+
+  {% comment %} 옛 글은 태그가 [[a, b]]처럼 중첩돼 있어 join으로 평탄화 {% endcomment %}
+  {% assign tags = page.tags | join: '|' | split: '|' %}
+  {% if tags.size > 0 %}
+    <section class="post-footer__section">
+      <h3 class="post-footer__heading">태그</h3>
+      <ul class="post-footer__tags">
+        {% for t in tags %}<li>{{ t }}</li>{% endfor %}
+      </ul>
+    </section>
+  {% endif %}
+
+  {% assign related_count = 0 %}
+  {% capture related_html %}
+    {% for p in cat_posts %}
+      {% if p.url == page.url %}{% continue %}{% endif %}
+      {% if related_count >= 4 %}{% break %}{% endif %}
+      {% assign related_count = related_count | plus: 1 %}
+      {% include first-image.html doc=p %}
+      <a class="post-footer__card" href="{{ p.url | relative_url }}">
+        <span class="post-footer__card-thumb{% unless first_image %} is-empty{% endunless %}">
+          {% if first_image %}<img src="{{ first_image }}" alt="" loading="lazy">{% else %}🍊{% endif %}
+        </span>
+        <span class="post-footer__card-title">{{ p.title | escape_once }}</span>
+      </a>
+    {% endfor %}
+  {% endcapture %}
+  {% if related_count > 0 %}
+    <section class="post-footer__section">
+      <h3 class="post-footer__heading">관련글</h3>
+      <div class="post-footer__cards">{{ related_html }}</div>
+    </section>
+  {% endif %}
+
+  <section class="post-footer__blog">
+    <div>
+      <h3 class="post-footer__blog-title">{{ site.title }}</h3>
+      <p class="post-footer__blog-desc">{{ site.description }}</p>
+      <a class="post-footer__btn" href="{{ '/feed.xml' | relative_url }}" target="_blank" rel="noopener">구독하기 ＋</a>
+    </div>
+    {% if site.logo %}<img class="post-footer__blog-logo" src="{{ site.logo | relative_url }}" alt="">{% endif %}
+  </section>
+</div>
+
+<script>
+  (function () {
+    var copyBtn = document.querySelector("[data-share-copy]");
+    var shareBtn = document.querySelector("[data-share-native]");
+    if (copyBtn) copyBtn.addEventListener("click", function () {
+      navigator.clipboard.writeText(location.href).then(function () {
+        copyBtn.querySelector("span").textContent = "복사됨!";
+        setTimeout(function () { copyBtn.querySelector("span").textContent = "링크 복사"; }, 1500);
+      });
+    });
+    if (shareBtn && navigator.share) {
+      shareBtn.hidden = false;
+      shareBtn.addEventListener("click", function () {
+        navigator.share({ title: document.title, url: location.href }).catch(function () {});
+      });
+    }
+  })();
+</script>

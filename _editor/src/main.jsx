@@ -8,6 +8,7 @@ import "@blocknote/mantine/style.css";
 import "./editor.css";
 
 import { GitHub, utf8ToBase64 } from "./github.js";
+import { notionShortcuts, SHORTCUT_HELP } from "./notion-shortcuts.js";
 import {
   buildFrontMatter,
   emptyMeta,
@@ -55,8 +56,10 @@ function SettingsModal({ initialToken, onSave, onClose, canClose }) {
   const save = async () => {
     setState({ busy: true, msg: "확인 중…" });
     try {
-      const info = await new GitHub(token.trim(), CONFIG.repo).repoInfo();
-      if (!info.permissions?.push) throw new Error("이 토큰에는 저장소 쓰기 권한이 없어요 (Contents: Read and write 필요).");
+      const gh = new GitHub(token.trim(), CONFIG.repo);
+      await gh.repoInfo();
+      // repoInfo의 permissions는 계정 권한이라 토큰 권한을 알 수 없음 → 실제로 쓰기를 시도해 확인
+      await gh.checkWrite();
       store.set(TOKEN_KEY, token.trim());
       onSave(token.trim());
     } catch (e) {
@@ -205,6 +208,7 @@ function App() {
   const editor = useCreateBlockNote({
     dictionary: ko,
     uploadFile: async (file) => fileToDataUrl(file),
+    extensions: [notionShortcuts],
   });
 
   const draftKey = (path) => DRAFT_PREFIX + (path || "new");
@@ -540,6 +544,17 @@ function App() {
           <p className="ge-hint">
             <kbd>/</kbd> 블록 메뉴 · 이미지는 붙여넣기·드래그 · <kbd>Ctrl</kbd>+<kbd>S</kbd> 발행
           </p>
+          <details className="ge-shortcuts">
+            <summary>노션 단축키 보기 (Mac은 Ctrl 대신 Cmd, Ctrl+Shift+숫자 대신 Cmd+Option+숫자)</summary>
+            <dl>
+              {SHORTCUT_HELP.map(([key, label]) => (
+                <div key={key}>
+                  <dt><kbd>{key}</kbd></dt>
+                  <dd>{label}</dd>
+                </div>
+              ))}
+            </dl>
+          </details>
         </div>
       </main>
 

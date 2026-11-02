@@ -617,6 +617,223 @@ $resume-mist: #f4f6fa;
   }
 }
 
+/* ---------- 글 하단 (티스토리 스타일) ---------- */
+.post-footer {
+  clear: both; // 오른쪽 목차(float) 아래에서 시작
+  margin-top: 3em;
+  font-size: 0.85rem;
+
+  h3 {
+    border: 0 !important;
+    padding: 0 !important;
+    margin: 0;
+
+    &::before {
+      content: none !important;
+    }
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.post-footer__actions {
+  display: flex;
+  gap: 0.4em;
+  margin-bottom: 2.6em;
+}
+
+.post-footer__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  padding: 0.35em 0.95em;
+  border: 1px solid #d9d4ca;
+  border-radius: 999px;
+  background: #fff;
+  color: $text-color !important;
+  font: inherit;
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+
+  &:hover {
+    border-color: $tangerine;
+    color: $tangerine-deep !important;
+  }
+}
+
+.post-footer__box {
+  padding: 1.1em 1.3em;
+  margin-bottom: 2.4em;
+  border: 1px solid $border-color;
+  background: #fff;
+}
+
+.post-footer__box-title {
+  font-size: 0.95em;
+  font-weight: 400;
+  margin-bottom: 0.8em !important;
+  color: mix($text-color, $background-color, 75%);
+
+  a {
+    font-weight: 700;
+    color: $tangerine-deep !important;
+  }
+}
+
+.post-footer__list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1em;
+  padding: 0.2em 0;
+
+  a {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: mix($text-color, $background-color, 80%) !important;
+
+    &:hover {
+      color: $tangerine-deep !important;
+      text-decoration: underline;
+    }
+  }
+
+  time {
+    flex-shrink: 0;
+    color: mix($text-color, $background-color, 55%);
+    font-variant-numeric: tabular-nums;
+  }
+
+  &.is-current a {
+    color: $text-color !important;
+    font-weight: 700;
+  }
+}
+
+.post-footer__section {
+  margin-bottom: 2.4em;
+}
+
+.post-footer__heading {
+  font-size: 0.95em;
+  font-weight: 700;
+  margin-bottom: 0.8em !important;
+}
+
+.post-footer__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4em;
+
+  li {
+    margin: 0;
+    padding: 0.25em 0.9em;
+    border: 1px solid #d9d4ca;
+    border-radius: 999px;
+    background: #fff;
+    font-size: 0.9em;
+  }
+}
+
+.post-footer__cards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr)); // 긴 제목이 칸을 밀어내지 않게
+  gap: 0.8em;
+}
+
+.post-footer__card {
+  display: block;
+  color: $text-color !important;
+
+  &:hover .post-footer__card-title {
+    color: $tangerine-deep;
+  }
+
+  &:hover img {
+    transform: scale(1.04);
+  }
+}
+
+.post-footer__card-thumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: $tangerine-soft;
+  font-size: 1.8em;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0 !important;
+    object-fit: cover;
+    border-radius: 0 !important;
+    transition: transform 0.25s;
+  }
+
+  &.is-empty {
+    background: linear-gradient(135deg, $tangerine-soft, $lime-soft);
+  }
+}
+
+.post-footer__card-title {
+  display: block;
+  margin-top: 0.45em;
+  font-size: 0.9em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.post-footer__blog {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.2em;
+  padding: 1.6em 1.6em 2.4em;
+  background: #f3f1ec;
+}
+
+.post-footer__blog-title {
+  font-size: 1.15em !important;
+  font-weight: 500;
+  margin-bottom: 0.3em !important;
+}
+
+.post-footer__blog-desc {
+  margin: 0 0 1em;
+  font-size: 0.9em;
+  color: mix($text-color, $background-color, 70%);
+}
+
+.post-footer__blog-logo {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  margin: 0 !important;
+  border-radius: 6px !important;
+  object-fit: cover;
+}
+
+@media (max-width: 600px) {
+  .post-footer__cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 /* ---------- 주인 전용 편집 버튼 ---------- */
 .owner-tools {
   position: fixed;

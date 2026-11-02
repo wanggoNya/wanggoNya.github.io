@@ -164,3 +164,16 @@ kbd {
   .ge-props, .ge-hint { padding-left: 4px; padding-right: 4px; }
   .ge-prop__label { width: 70px; }
 }
+
+/* ── 단축키 도움말 ── */
+.ge-shortcuts { margin: 10px 54px 0; font-size: 13px; color: var(--muted); }
+.ge-shortcuts summary { cursor: pointer; }
+.ge-shortcuts summary:hover { color: var(--tangerine-deep); }
+.ge-shortcuts dl {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 6px 18px;
+  margin: 12px 0 0; padding: 14px 16px; background: #fff; border: 1px solid var(--line); border-radius: 10px;
+}
+.ge-shortcuts dl > div { display: flex; align-items: baseline; gap: 10px; }
+.ge-shortcuts dt { flex: 0 0 auto; }
+.ge-shortcuts dd { margin: 0; color: var(--ink); }
+@media (max-width: 820px) { .ge-shortcuts { margin-left: 4px; margin-right: 4px; } }

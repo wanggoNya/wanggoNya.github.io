@@ -1,0 +1,14 @@
+{% comment %}
+  글의 대표 이미지 주소를 first_image 변수에 넣음: header.teaser → 본문 첫 이미지 → 없으면 빈 값
+  사용: {% include first-image.html doc=post %}
+{% endcomment %}
+{% assign first_image = include.doc.header.teaser %}
+{% unless first_image %}
+  {% assign _img_parts = include.doc.content | split: "<img" %}
+  {% if _img_parts.size > 1 %}
+    {% assign first_image = _img_parts[1] | split: 'src="' | slice: 1 | first | split: '"' | first %}
+  {% endif %}
+{% endunless %}
+{% if first_image %}
+  {% unless first_image contains '://' %}{% assign first_image = first_image | relative_url %}{% endunless %}
+{% endif %}
