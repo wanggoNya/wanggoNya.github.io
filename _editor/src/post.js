@@ -110,18 +110,19 @@ export function buildFrontMatter(original, meta) {
 }
 
 // 에디터에서 붙여넣은 이미지는 data URL로 들고 있다가, 발행할 때 파일로 떼어내 저장소에 함께 커밋
+// 캡션 없는 이미지는 ![](data:…), 캡션 있는 이미지는 <figure><img src="data:…"> 로 나오므로 둘 다 처리
 export function extractInlineImages(markdown, folder, baseurl) {
   const files = [];
   let n = 0;
   const out = markdown.replace(
-    /\(data:image\/([a-z0-9.+-]+);base64,([A-Za-z0-9+/=]+)\)/gi,
+    /data:image\/([a-z0-9.+-]+);base64,([A-Za-z0-9+/=]+)/gi,
     (_, type, b64) => {
       n += 1;
       const ext = { jpeg: "jpg", "svg+xml": "svg" }[type.toLowerCase()] || type.toLowerCase();
       const name = `${Date.now().toString(36)}-${n}.${ext}`;
       const path = `assets/images/posts/${folder}/${name}`;
       files.push({ path, base64: b64 });
-      return `(${baseurl}/${path})`;
+      return `${baseurl}/${path}`;
     }
   );
   return { markdown: out, files };
