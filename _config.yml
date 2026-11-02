@@ -56,9 +56,10 @@ reCaptcha:
 atom_feed:
   path: # blank (default) uses feed.xml
   hide: # true, false (default)
-search: # true, false (default)
-search_full_content: # true, false (default)
+search: true # 글 검색 (상단 돋보기)
+search_full_content: true # 본문 전체 검색
 search_provider: # google
+
 algolia:
   application_id: # YOUR_APPLICATION_ID
   index_name: # YOUR_INDEX_NAME
@@ -93,6 +94,7 @@ analytics:
   provider: "google-gtag"
   # false (default), "google", "google-universal", "google-gtag", "custom"
   google:
+    # Google Analytics 가입 후 측정 ID(G-로 시작)를 넣으면 방문 집계가 시작됨
     tracking_id: "your tracking id here"
     anonymize_ip: # true, false (default)
 
@@ -120,9 +122,6 @@ author:
      - label: "GitHub"
        icon: "fab fa-fw fa-github"
        url: "https://github.com/wanggoNya"
-     - label: "Instagram"
-       icon: "fab fa-fw fa-instagram"
-       url: "https://www.instagram.com/"
 
 # Site Footer
 footer:
@@ -142,9 +141,6 @@ footer:
     - label: "Bitbucket"
       icon: "fab fa-fw fa-bitbucket"
       # url:
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      url: "https://www.instagram.com/"
 
 # Reading Files
 include:
