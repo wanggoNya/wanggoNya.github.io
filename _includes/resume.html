@@ -1,0 +1,47 @@
+{% assign r = site.data.resume %}
+<div class="resume">
+  <section class="resume__hero">
+    <p class="resume__greeting">{{ r.intro.greeting }}</p>
+    <p class="resume__lead">{{ r.intro.headline }}</p>
+    {% for p in r.intro.paragraphs %}<p class="resume__lead">{{ p }}</p>{% endfor %}
+    <ul class="resume__chips">
+      {% for k in r.intro.keywords %}<li>{{ k }}</li>{% endfor %}
+    </ul>
+    <ul class="resume__links">
+      {% for l in r.intro.links %}
+        <li><a href="{% if l.url contains '://' or l.url contains 'mailto:' %}{{ l.url }}{% else %}{{ l.url | relative_url }}{% endif %}"><i class="{{ l.icon }}" aria-hidden="true"></i> {{ l.label }}</a></li>
+      {% endfor %}
+    </ul>
+  </section>
+
+  <section class="resume__section">
+    <h2 class="resume__title">Careers</h2>
+    {% for c in r.careers %}
+      <article class="resume__org">
+        <header class="resume__org-head">
+          {% if c.logo %}
+            <a class="resume__logo" href="{{ c.url | default: '#' }}" target="_blank" rel="noopener" aria-label="{{ c.org }}">
+              <img src="{{ c.logo | relative_url }}" alt="{{ c.org }} 로고" width="56" height="56">
+            </a>
+          {% endif %}
+          <div class="resume__org-name">
+            <h3>{{ c.org }}</h3>
+            <p class="resume__role">{{ c.role }}{% if c.summary %} · {{ c.summary }}{% endif %}</p>
+          </div>
+          <span class="resume__period">{{ c.period }}</span>
+        </header>
+        <ol class="resume__timeline">
+          {% for it in c.items %}
+            <li>
+              <div class="resume__item-head">
+                <h4>{{ it.title }}</h4>
+                <span class="resume__period">{{ it.period }}</span>
+              </div>
+              {% if it.points %}<ul>{% for pt in it.points %}<li>{{ pt }}</li>{% endfor %}</ul>{% endif %}
+            </li>
+          {% endfor %}
+        </ol>
+      </article>
+    {% endfor %}
+  </section>
+</div>

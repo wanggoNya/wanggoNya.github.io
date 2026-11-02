@@ -159,6 +159,55 @@ $base0f: #c95a00 !default;
   border-radius: 6px;
 }
 
+/* 사이드바 카테고리: 접기 없이 항상 표시 + 글 개수 */
+.nav__list--always {
+  .nav__items {
+    max-height: none !important;
+    opacity: 1 !important;
+    overflow: visible !important;
+    transform: none !important;
+    margin-top: 0.4em;
+  }
+}
+
+.nav__category-title {
+  margin: 0 0 0.4em;
+  padding-bottom: 0.4em;
+  font-size: 1rem;
+  color: $text-color;
+  border-bottom: 2px solid $lime-soft;
+
+  .nav__count {
+    color: $lime-deep;
+  }
+}
+
+.nav__count {
+  font-size: 0.85em;
+  font-weight: 400;
+  color: mix($text-color, $background-color, 55%);
+}
+
+.nav__list .nav__items .nav__cat {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35em;
+  padding: 0.15em 0.5em;
+  border-radius: 6px;
+
+  &:hover {
+    background-color: $tangerine-soft;
+  }
+
+  &.active .nav__count {
+    color: $tangerine-deep;
+  }
+
+  &--empty {
+    opacity: 0.45;
+  }
+}
+
 /* 버튼·페이지네이션 */
 .btn--primary {
   background-color: $tangerine;
@@ -276,6 +325,261 @@ $base0f: #c95a00 !default;
 
 .ais-search-box .ais-search-box--input {
   background-color: $form-background-color;
+}
+
+/* ---------- Resume (흑색·진한 남색) ---------- */
+$resume-ink: #0b1220;
+$resume-navy: #14254a;
+$resume-navy-2: #1f3666;
+$resume-slate: #5b6579;
+$resume-line: #e2e6ee;
+$resume-mist: #f4f6fa;
+
+.resume {
+  font-size: 0.92em;
+  color: $resume-ink;
+
+  h2, h3, h4 {
+    border: 0 !important;
+    padding-left: 0 !important;
+    margin: 0;
+    color: $resume-ink;
+
+    &::before {
+      content: none !important;
+    }
+  }
+
+  ul, ol {
+    margin: 0;
+  }
+
+  a, a:visited {
+    text-decoration: none;
+  }
+}
+
+.resume__hero {
+  padding: 1.6em 1.6em 1.4em;
+  margin-bottom: 2.6em;
+  border-radius: 12px;
+  background: $resume-mist;
+  border: 1px solid $resume-line;
+  border-left: 4px solid $resume-navy;
+  color: $resume-ink;
+}
+
+.resume__greeting {
+  margin: 0 0 0.3em;
+  font-weight: 700;
+  color: $resume-navy;
+}
+
+.resume__lead {
+  margin: 0 0 0.4em;
+  line-height: 1.75;
+  color: #2a3245;
+}
+
+.resume__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4em;
+  padding: 0;
+  margin: 1.1em 0 0 !important;
+  list-style: none;
+
+  li {
+    margin: 0;
+    padding: 0.15em 0.7em;
+    border-radius: 4px;
+    background: #fff;
+    border: 1px solid #cdd5e4;
+    color: $resume-navy;
+    font-size: 0.82em;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+  }
+}
+
+.resume__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  padding: 0;
+  margin-top: 1.1em !important;
+  list-style: none;
+
+  li {
+    margin: 0;
+  }
+
+  a {
+    display: inline-block;
+    padding: 0.35em 0.9em;
+    border-radius: 6px;
+    background: $resume-navy;
+    color: #fff !important;
+    font-size: 0.85em;
+    font-weight: 700;
+    transition: background 0.15s;
+
+    &:hover {
+      background: $resume-ink;
+    }
+  }
+}
+
+.resume__section {
+  margin-bottom: 2.6em;
+}
+
+.resume__title {
+  font-size: 1.25em;
+  letter-spacing: 0.02em;
+  margin-bottom: 1.2em !important;
+  padding-bottom: 0.45em !important;
+  border-bottom: 2px solid $resume-ink !important;
+}
+
+.resume__period {
+  flex-shrink: 0;
+  font-size: 0.82em;
+  font-weight: 600;
+  color: $resume-slate;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.resume__org {
+  padding-bottom: 1.4em;
+  margin-bottom: 1.6em;
+  border-bottom: 1px solid $resume-line;
+
+  &:last-child {
+    border-bottom: 0;
+  }
+}
+
+.resume__org-head {
+  display: flex;
+  align-items: center;
+  gap: 0.9em;
+  margin-bottom: 1.1em;
+
+  h3 {
+    font-size: 1.15em;
+  }
+
+  > .resume__period {
+    margin-left: auto;
+    align-self: flex-start;
+    padding-top: 0.2em;
+  }
+}
+
+.resume__logo {
+  flex: 0 0 56px;
+  width: 56px;
+  height: 56px;
+  padding: 5px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid $resume-line;
+  background: #fff;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    object-fit: contain;
+  }
+}
+
+.resume__org-name {
+  min-width: 0;
+}
+
+.resume__role {
+  margin: 0.15em 0 0;
+  font-size: 0.9em;
+  color: $resume-slate;
+}
+
+.resume__timeline {
+  list-style: none;
+  margin-left: 27px !important; // 로고(56px) 가운데 아래로 선이 내려오게
+  padding-left: 1.6em;
+  border-left: 2px solid $resume-line;
+
+  > li {
+    position: relative;
+    margin: 0 0 1.3em;
+
+    &:last-child {
+      margin-bottom: 0.2em;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: calc(-1.6em - 6px);
+      top: 0.45em;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: $resume-navy;
+      box-shadow: 0 0 0 3px #fff;
+    }
+  }
+
+  ul {
+    padding-left: 1.1em;
+    margin-top: 0.35em !important;
+
+    li {
+      margin: 0.2em 0;
+      line-height: 1.65;
+      color: #2a3245;
+
+      &::marker {
+        color: $resume-navy-2;
+      }
+    }
+  }
+}
+
+.resume__item-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1em;
+
+  h4 {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 600px) {
+  .resume__hero {
+    padding: 1.2em 1em;
+  }
+
+  .resume__org-head {
+    flex-wrap: wrap;
+
+    > .resume__period {
+      margin-left: calc(56px + 0.9em);
+      padding-top: 0;
+    }
+  }
+
+  .resume__item-head {
+    flex-direction: column;
+    gap: 0.2em;
+  }
 }
 
 /* ---------- 주인 전용 편집 버튼 ---------- */

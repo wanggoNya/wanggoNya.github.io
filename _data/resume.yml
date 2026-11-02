@@ -1,0 +1,40 @@
+# Resume 페이지(/resume/) 내용. 이 파일만 고치면 페이지가 바뀜.
+# 경력은 LinkedIn 프로필 기준, 세부 내용은 블로그·티스토리 글 기준.
+
+intro:
+  greeting: "안녕하세요, 김수연입니다."
+  headline: "System, Network, Linux Kernel 그리고 조직 문화에 관심이 많은 5년 차 보안 소프트웨어 개발자입니다."
+  paragraphs:
+    - "리눅스 기반 엔드포인트 보안 솔루션을 개발하고 있습니다."
+  keywords: [C, C++, Linux, Endpoint Security, Network, DPDK, Wireshark, Kubernetes]
+  links:
+    - { label: "GitHub", url: "https://github.com/wanggoNya", icon: "fab fa-github" }
+    - { label: "LinkedIn", url: "https://www.linkedin.com/in/sooyeon-kim-seongnam/", icon: "fab fa-linkedin" }
+    - { label: "Blog", url: "/", icon: "fas fa-pen-nib" }
+    - { label: "Email", url: "mailto:tndus6384@naver.com", icon: "fas fa-envelope" }
+
+careers:
+  - org: "AhnLab, Inc."
+    logo: "/assets/images/resume/ahnlab.svg"
+    url: "https://www.ahnlab.com"
+    role: "Security Software Engineer"
+    period: "2025.08 — 현재"
+    items:
+      - title: "Unix/Linux 서버용 엔드포인트 보안 솔루션 (V3)"
+        period: "2025.08 —"
+        points:
+          - "V3 for Unix/Linux 서버 제품 개발 및 유지보수"
+
+  - org: "SECUDAim"
+    logo: "/assets/images/resume/secudaim.png"
+    url: "https://www.secudaim.com"
+    role: "Security Software Engineer"
+    period: "2022.08 — 2025.08"
+    items:
+      - title: "Lockard XDLP · NDR 유지보수 개발 및 고도화"
+        period: "2024.06 — 2025.08"
+      - title: "Lockard XNDR 솔루션 엔진 개발"
+        period: "2023.01 — 2024.05"
+        points:
+          - "네트워크 탐지·대응(NDR) 신제품의 엔진 개발"
+
