@@ -10,12 +10,27 @@
   {% assign title = post.title %}
 {% endif %}
 
+{% comment %} 목록용 썸네일: header.teaser가 없으면 본문 첫 이미지, 그것도 없으면 귤 자리표시 {% endcomment %}
+{% assign thumb = post.header.teaser %}
+{% unless thumb %}
+  {% assign img_parts = post.content | split: "<img" %}
+  {% if img_parts.size > 1 %}
+    {% assign thumb = img_parts[1] | split: 'src="' | slice: 1 | first | split: '"' | first %}
+  {% endif %}
+{% endunless %}
+
 <div class="{{ include.type | default: 'list' }}__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+  <article class="archive__item{% if include.type != 'grid' %} archive__item--thumb{% endif %}" itemscope itemtype="https://schema.org/CreativeWork">
     {% if include.type == "grid" and teaser %}
       <div class="archive__item-teaser">
         <img src="{{ teaser | relative_url }}" alt="">
       </div>
+    {% endif %}
+    {% if include.type != "grid" %}
+      <a class="archive__item-thumb{% unless thumb %} archive__item-thumb--empty{% endunless %}" href="{{ post.url | relative_url }}" tabindex="-1" aria-hidden="true">
+        {% if thumb %}<img src="{% if thumb contains '://' %}{{ thumb }}{% else %}{{ thumb | relative_url }}{% endif %}" alt="" loading="lazy">{% else %}<span>🍊</span>{% endif %}
+      </a>
+      <div class="archive__item-text">
     {% endif %}
     <h2 class="archive__item-title no_toc" itemprop="headline">
       {% if post.link %}
@@ -26,5 +41,6 @@
     </h2>
     {% include page__meta.html type=include.type %}
     {% if post.excerpt %}<p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify | strip_html | truncate: 160 }}</p>{% endif %}
+    {% if include.type != "grid" %}</div>{% endif %}
   </article>
 </div>

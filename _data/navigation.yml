@@ -18,21 +18,31 @@ main:
 # sidebar navigation (categories)
 # 2022.02.15 sidebar update : simple ver.
 categories:
-  - title: "Algorithm"
-    url: /categories/algorithm/
-  - title: "Cloud"
-    url: /categories/cloud/
-  - title: "C/Rust"
-    url: /categories/crust/
-  - title: "Linux"
-    url: /categories/linux/
+  - title: "Kernel"
+    url: /categories/kernel/
+  - title: "System"
+    url: /categories/system/
   - title: "Network"
     url: /categories/network/
+  - title: "Linux"
+    url: /categories/linux/
+  - title: "Cloud"
+    url: /categories/cloud/
+  - title: "Programming"
+    url: /categories/programming/
+  - title: "Algorithm"
+    url: /categories/algorithm/
+  - title: "C/Rust"
+    url: /categories/crust/
   - title: "OS"
     url: /categories/os/
   - title: "Security"
     url: /categories/security/
+  - title: "Web"
+    url: /categories/web/
+  - title: "Book"
+    url: /categories/book/
   - title: "Life"
-    url: /categories/Life/
+    url: /categories/life/
   - title: "Etc"
     url: /categories/etc/

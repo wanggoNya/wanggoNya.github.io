@@ -200,6 +200,64 @@ $base0f: #c95a00 !default;
   color: mix($text-color, $background-color, 70%);
 }
 
+/* 글 목록: 왼쪽 썸네일 + 오른쪽 제목·요약 */
+.archive__item--thumb {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.1em;
+  padding: 0.9em 0;
+  border-bottom: 1px solid $border-color;
+
+  .archive__item-title {
+    margin-top: 0;
+  }
+}
+
+.archive__item-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.archive__item-thumb {
+  flex: 0 0 160px;
+  height: 108px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: $tangerine-soft;
+  border: 1px solid $border-color;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.25s;
+  }
+
+  &:hover img {
+    transform: scale(1.04);
+  }
+
+  &--empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, $tangerine-soft, $lime-soft);
+    font-size: 2.2em;
+  }
+}
+
+@media (max-width: 600px) {
+  .archive__item--thumb {
+    gap: 0.8em;
+  }
+
+  .archive__item-thumb {
+    flex-basis: 96px;
+    height: 72px;
+  }
+}
+
 /* 프로필 */
 .author__avatar img {
   border: 3px solid $lime-soft;
