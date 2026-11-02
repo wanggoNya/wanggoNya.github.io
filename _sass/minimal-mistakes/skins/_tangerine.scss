@@ -834,6 +834,74 @@ $resume-mist: #f4f6fa;
   }
 }
 
+/* 구독하기 창 */
+.subscribe-dialog {
+  position: fixed;
+  width: 420px;
+  max-width: calc(100vw - 32px);
+  padding: 1.6em 1.6em 1.3em;
+  border: 0;
+  border-top: 5px solid $tangerine;
+  border-radius: 14px;
+  background: #fff;
+  color: $text-color;
+  font-size: 0.85rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
+
+  &::backdrop {
+    background: rgba(43, 42, 39, 0.35);
+  }
+
+  h3 {
+    margin: 0 0 0.4em;
+    font-size: 1.15em;
+    border: 0;
+    padding: 0;
+
+    &::before {
+      content: none;
+    }
+  }
+
+  p {
+    margin: 0 0 1em;
+    font-size: 0.95em;
+  }
+}
+
+.subscribe-dialog__close {
+  position: absolute;
+  top: 0.6em;
+  right: 0.8em;
+  border: 0;
+  background: none;
+  font-size: 1.1em;
+  color: mix($text-color, #fff, 60%);
+  cursor: pointer;
+}
+
+.subscribe-dialog__btns {
+  a {
+    text-decoration: none;
+  }
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45em;
+  margin-bottom: 1em;
+
+  .is-primary {
+    background: $tangerine;
+    border-color: $tangerine;
+    color: #fff !important;
+  }
+}
+
+.subscribe-dialog__url code {
+  font-size: 0.85em;
+  word-break: break-all;
+}
+
 /* ---------- 주인 전용 편집 버튼 ---------- */
 .owner-tools {
   position: fixed;

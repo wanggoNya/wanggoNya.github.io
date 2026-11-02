@@ -10,7 +10,7 @@
     <button type="button" class="post-footer__btn" data-share-native hidden aria-label="공유">
       <i class="fas fa-share-alt" aria-hidden="true"></i> <span>공유</span>
     </button>
-    <a class="post-footer__btn" href="{{ '/feed.xml' | relative_url }}" target="_blank" rel="noopener">구독하기</a>
+    <button type="button" class="post-footer__btn" data-subscribe>구독하기</button>
   </div>
 
   {% if cat_posts and cat_posts.size > 1 %}
@@ -74,11 +74,27 @@
     <div>
       <h3 class="post-footer__blog-title">{{ site.title }}</h3>
       <p class="post-footer__blog-desc">{{ site.description }}</p>
-      <a class="post-footer__btn" href="{{ '/feed.xml' | relative_url }}" target="_blank" rel="noopener">구독하기 ＋</a>
+      <button type="button" class="post-footer__btn" data-subscribe>구독하기 ＋</button>
     </div>
     {% if site.logo %}<img class="post-footer__blog-logo" src="{{ site.logo | relative_url }}" alt="">{% endif %}
   </section>
 </div>
+
+{% comment %} 구독하기: RSS 원본(XML) 대신 리더 앱으로 바로 구독하는 창 {% endcomment %}
+{% assign feed_url = '/feed.xml' | absolute_url %}
+<dialog class="subscribe-dialog" id="subscribe-dialog">
+  <form method="dialog">
+    <button class="subscribe-dialog__close" aria-label="닫기">✕</button>
+  </form>
+  <h3>🍊 {{ site.title }} 구독하기</h3>
+  <p>RSS 리더 앱에 추가하면 새 글이 올라올 때마다 받아볼 수 있어요.</p>
+  <div class="subscribe-dialog__btns">
+    <a class="post-footer__btn is-primary" href="https://feedly.com/i/subscription/feed%2F{{ feed_url | url_encode }}" target="_blank" rel="noopener">Feedly로 구독</a>
+    <a class="post-footer__btn" href="https://www.inoreader.com/?add_feed={{ feed_url | url_encode }}" target="_blank" rel="noopener">Inoreader로 구독</a>
+    <button type="button" class="post-footer__btn" data-copy-feed>RSS 주소 복사</button>
+  </div>
+  <p class="subscribe-dialog__url"><code>{{ feed_url }}</code></p>
+</dialog>
 
 <script>
   (function () {
@@ -88,6 +104,18 @@
       navigator.clipboard.writeText(location.href).then(function () {
         copyBtn.querySelector("span").textContent = "복사됨!";
         setTimeout(function () { copyBtn.querySelector("span").textContent = "링크 복사"; }, 1500);
+      });
+    });
+    var dialog = document.getElementById("subscribe-dialog");
+    document.querySelectorAll("[data-subscribe]").forEach(function (b) {
+      b.addEventListener("click", function () { dialog.showModal(); });
+    });
+    dialog.addEventListener("click", function (e) { if (e.target === dialog) dialog.close(); });
+    var copyFeed = dialog.querySelector("[data-copy-feed]");
+    copyFeed.addEventListener("click", function () {
+      navigator.clipboard.writeText("{{ feed_url }}").then(function () {
+        copyFeed.textContent = "복사됨!";
+        setTimeout(function () { copyFeed.textContent = "RSS 주소 복사"; }, 1500);
       });
     });
     if (shareBtn && navigator.share) {

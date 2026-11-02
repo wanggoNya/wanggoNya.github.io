@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- /feed.xml 을 브라우저로 열었을 때 보여 줄 페이지 (RSS 리더 앱은 이 파일을 무시하고 원본을 읽음) -->
+<xsl:stylesheet version="1.0"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:atom="http://www.w3.org/2005/Atom">
+  <xsl:output method="html" encoding="utf-8" indent="yes"/>
+  <xsl:template match="/atom:feed">
+    <html lang="ko">
+      <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>구독하기 · <xsl:value-of select="atom:title"/></title>
+        <style>
+          :root { --t: #ff8a1f; --td: #c95a00; --ts: #fff1e0; --l: #8dc63f; --ls: #f1f8e4; --ink: #2b2a27; --mut: #8a857c; --line: #efe9df; }
+          * { box-sizing: border-box; }
+          body { margin: 0; background: #fffdf8; color: var(--ink); font: 14px/1.7 "Pretendard", -apple-system, "Segoe UI", sans-serif; word-break: keep-all; }
+          main { max-width: 760px; margin: 0 auto; padding: 40px 16px 80px; }
+          .card { background: linear-gradient(135deg, var(--ts), var(--ls)); border: 1px solid var(--line); border-radius: 14px; padding: 22px 24px; }
+          h1 { margin: 0 0 6px; font-size: 22px; }
+          .desc { margin: 0 0 14px; color: var(--mut); }
+          .btns { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+          .btn { display: inline-block; padding: 7px 14px; border-radius: 999px; text-decoration: none; font-weight: 700; font-size: 13px; background: #fff; color: var(--ink); border: 1px solid #d9d4ca; }
+          .btn.primary { background: var(--t); color: #fff; border-color: var(--t); }
+          code { background: #fff; border: 1px solid var(--line); border-radius: 6px; padding: 2px 8px; font-size: 12px; word-break: break-all; }
+          h2 { font-size: 15px; margin: 34px 0 10px; }
+          ul { list-style: none; margin: 0; padding: 0; }
+          li { display: flex; justify-content: space-between; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--line); }
+          li a { color: var(--ink); text-decoration: none; }
+          li a:hover { color: var(--td); }
+          time { color: var(--mut); flex-shrink: 0; font-size: 12px; }
+        </style>
+      </head>
+      <body>
+        <main>
+          <div class="card">
+            <h1>🍊 <xsl:value-of select="atom:title"/> 구독하기</h1>
+            <p class="desc">이 페이지는 RSS 피드예요. 아래 버튼으로 RSS 리더 앱에 추가하면 새 글이 올라올 때마다 받아볼 수 있어요.</p>
+            <div>피드 주소: <code><xsl:value-of select="atom:link[@rel='self']/@href"/></code></div>
+            <div class="btns">
+              <a class="btn primary" target="_blank" rel="noopener">
+                <xsl:attribute name="href">https://feedly.com/i/subscription/feed%2F<xsl:value-of select="atom:link[@rel='self']/@href"/></xsl:attribute>
+                Feedly로 구독
+              </a>
+              <a class="btn" target="_blank" rel="noopener">
+                <xsl:attribute name="href">https://www.inoreader.com/?add_feed=<xsl:value-of select="atom:link[@rel='self']/@href"/></xsl:attribute>
+                Inoreader로 구독
+              </a>
+              <a class="btn">
+                <xsl:attribute name="href"><xsl:value-of select="atom:link[@rel='alternate']/@href"/></xsl:attribute>
+                블로그로 돌아가기
+              </a>
+            </div>
+          </div>
+          <h2>최근 글</h2>
+          <ul>
+            <xsl:for-each select="atom:entry">
+              <li>
+                <a>
+                  <xsl:attribute name="href"><xsl:value-of select="atom:link/@href"/></xsl:attribute>
+                  <xsl:value-of select="atom:title"/>
+                </a>
+                <time><xsl:value-of select="substring(atom:published, 1, 10)"/></time>
+              </li>
+            </xsl:for-each>
+          </ul>
+        </main>
+      </body>
+    </html>
+  </xsl:template>
+</xsl:stylesheet>

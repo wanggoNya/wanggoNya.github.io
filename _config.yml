@@ -24,7 +24,7 @@ title_separator: "&#124;"
 subtitle: # site tagline that appears below site title in masthead
 name: "wanggoNya" # 블로그 닉네임 설정
 description: "C언어 개발자 왕고냐의 기술 블로그 | Computer Science & Security, Linux, Cloud, DevOps에 관심 있음." # 블로그 설명
-url: "https://wanggonya.github.io/" # 블로그 URL
+url: "https://wanggonya.github.io" # 블로그 URL (끝에 / 없이)
 baseurl: # the subpath of your site, e.g. "/blog"
 repository: "wanggoNya/wanggoNya.github.io" # GitHub Repo 이름
 teaser: #
@@ -53,6 +53,9 @@ comments:
 reCaptcha:
   siteKey:
   secret:
+# RSS 피드(/feed.xml)를 브라우저로 열었을 때 보기 좋은 페이지로 보여 줌 (feed.xslt.xml)
+feed:
+  xsl: true
 atom_feed:
   path: # blank (default) uses feed.xml
   hide: # true, false (default)
