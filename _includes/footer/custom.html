@@ -1,3 +1,16 @@
 <!-- start custom footer snippets -->
 
+<!-- 블로그 주인(에디터에 토큰을 연결한 브라우저)에게만 보이는 편집 버튼 -->
+<div id="owner-tools" class="owner-tools" hidden>
+  {% if page.collection == "posts" %}
+  <a class="owner-tools__btn" href="{{ '/edit/' | relative_url }}?path={{ page.path | uri_escape }}">✏️ 이 글 편집</a>
+  {% endif %}
+  <a class="owner-tools__btn owner-tools__btn--new" href="{{ '/edit/' | relative_url }}">🍊 새 글</a>
+</div>
+<script>
+  try {
+    if (localStorage.getItem("blogEditor.token")) document.getElementById("owner-tools").hidden = false;
+  } catch (e) {}
+</script>
+
 <!-- end custom footer snippets -->

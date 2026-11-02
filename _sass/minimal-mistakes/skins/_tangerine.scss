@@ -1,0 +1,258 @@
+/* ==========================================================================
+   Tangerine skin — 귤 + 연두
+   ========================================================================== */
+
+/* Colors */
+$tangerine: #ff8a1f;
+$tangerine-deep: #c95a00;
+$tangerine-soft: #fff1e0;
+$lime: #8dc63f;
+$lime-deep: #4e7a1e;
+$lime-soft: #f1f8e4;
+
+$background-color: #fffdf8 !default;
+$text-color: #2b2a27 !default;
+$primary-color: $tangerine !default;
+
+$border-color: #efe9df !default;
+$code-background-color: #fff4e6 !default;
+$code-background-color-dark: rgba(185, 185, 185, 0.25) !default;
+
+$mark-highlight-color: rgba($lime, 0.3) !default;
+$block-quote-background-color: $lime-soft !default;
+$form-background-color: #fff !default;
+$footer-background-color: #fbf6ec !default;
+$link-color: $tangerine-deep !default;
+
+$link-color-hover: $tangerine !default;
+$link-color-visited: $tangerine-deep !default;
+
+$masthead-link-color: $text-color !default;
+$masthead-link-color-hover: $tangerine-deep !default;
+$navicon-link-color-hover: $tangerine !default;
+
+$active-color: $tangerine-soft !default;
+
+/* YIQ color contrast */
+$yiq-contrasted-dark-default: $text-color !default;
+$yiq-contrasted-light-default: #fff !default;
+$yiq-contrasted-threshold: 175 !default;
+$yiq-debug: false !default;
+
+/* syntax highlighting (base16, 귤빛 톤) */
+$base00: #fffaf2 !default;
+$base01: #f6ecdc !default;
+$base02: #ecdfca !default;
+$base03: #a59a88 !default;
+$base04: #6b6355 !default;
+$base05: #2b2a27 !default;
+$base06: #1f1e1c !default;
+$base07: #141312 !default;
+$base08: #d1495b !default;
+$base09: #e07a00 !default;
+$base0a: #b58900 !default;
+$base0b: #5f9a1f !default;
+$base0c: #2a9d8f !default;
+$base0d: #3a7bd5 !default;
+$base0e: #9b5de5 !default;
+$base0f: #c95a00 !default;
+
+/* ---------- 상단 바 ---------- */
+.masthead {
+  background-color: rgba($background-color, 0.95);
+  border-bottom: 0;
+
+  &::after {
+    content: "";
+    display: block;
+    height: 3px;
+    background: linear-gradient(90deg, $tangerine 0%, #ffb347 55%, $lime 100%);
+  }
+}
+
+.site-title::before {
+  content: "🍊";
+  margin-right: 0.3em;
+}
+
+/* ---------- 본문 ---------- */
+::selection {
+  background: rgba($tangerine, 0.25);
+}
+
+.page__title {
+  color: $text-color;
+}
+
+.page__content {
+  a,
+  a:visited {
+    color: $tangerine-deep;
+    text-decoration-color: rgba($tangerine, 0.4);
+  }
+
+  a:hover {
+    color: $tangerine;
+  }
+
+  h1 {
+    border-bottom: 2px solid $tangerine-soft;
+  }
+
+  h2 {
+    border-bottom: 0;
+    padding-left: 0.6em;
+    border-left: 4px solid $tangerine;
+  }
+
+  h3::before {
+    content: "🌿 ";
+    font-size: 0.8em;
+  }
+
+  blockquote {
+    border-left-color: $lime;
+    background-color: $lime-soft;
+    border-radius: 0 8px 8px 0;
+  }
+
+  code.highlighter-rouge {
+    color: $tangerine-deep;
+  }
+
+  img {
+    border-radius: 8px;
+  }
+}
+
+/* 카테고리·태그 칩 */
+.page__taxonomy-item {
+  color: $lime-deep !important;
+  background-color: $lime-soft;
+  border-color: rgba($lime, 0.5);
+  border-radius: 999px;
+
+  &:hover {
+    background-color: $lime;
+    color: #fff !important;
+  }
+}
+
+/* 목차 */
+.toc .nav__title {
+  background: $lime;
+  color: #fff;
+}
+
+.toc__menu a:hover {
+  color: $tangerine-deep;
+}
+
+/* 왼쪽 카테고리 내비 */
+.nav__list .nav__items a:hover {
+  color: $tangerine-deep;
+}
+
+.nav__list .nav__items .active {
+  color: $tangerine-deep;
+  background-color: $tangerine-soft;
+  border-radius: 6px;
+}
+
+/* 버튼·페이지네이션 */
+.btn--primary {
+  background-color: $tangerine;
+
+  &:hover {
+    background-color: $tangerine-deep;
+  }
+}
+
+.pagination--pager {
+  color: #fff;
+  background-color: $tangerine;
+  border-color: transparent;
+
+  &:visited {
+    color: #fff;
+  }
+
+  &:hover {
+    background-color: $lime;
+  }
+}
+
+.pagination li a.current {
+  background: $tangerine;
+  color: #fff;
+}
+
+/* 글 목록 카드 */
+.archive__item-title a {
+  color: $text-color;
+
+  &:hover {
+    color: $tangerine-deep;
+  }
+}
+
+.archive__item-excerpt {
+  color: mix($text-color, $background-color, 70%);
+}
+
+/* 프로필 */
+.author__avatar img {
+  border: 3px solid $lime-soft;
+}
+
+.author__urls.social-icons i,
+.author__urls.social-icons .svg-inline--fa,
+.page__footer-follow .social-icons i,
+.page__footer-follow .social-icons .svg-inline--fa {
+  color: inherit;
+}
+
+.page__footer {
+  border-top: 3px solid $lime-soft;
+}
+
+.ais-search-box .ais-search-box--input {
+  background-color: $form-background-color;
+}
+
+/* ---------- 주인 전용 편집 버튼 ---------- */
+.owner-tools {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-end;
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.owner-tools__btn {
+  padding: 0.55em 1.1em;
+  border-radius: 999px;
+  font-size: 0.8em;
+  font-weight: 700;
+  text-decoration: none;
+  color: #fff !important;
+  background: $tangerine;
+  box-shadow: 0 4px 14px rgba($tangerine-deep, 0.35);
+  transition: transform 0.15s;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  &--new {
+    background: $lime;
+    box-shadow: 0 4px 14px rgba($lime-deep, 0.3);
+  }
+}

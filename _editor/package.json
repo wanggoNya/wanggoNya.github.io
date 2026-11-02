@@ -1,0 +1,23 @@
+{
+  "name": "wanggonya-blog-editor",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite build --watch",
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "5.0.2",
+    "vite": "7.1.5"
+  },
+  "dependencies": {
+    "@blocknote/core": "0.57.0",
+    "@blocknote/mantine": "0.57.0",
+    "@blocknote/react": "0.57.0",
+    "@mantine/core": "8.3.11",
+    "@mantine/hooks": "8.3.11",
+    "js-yaml": "4.1.0",
+    "react": "19.1.1",
+    "react-dom": "19.1.1"
+  }
+}
