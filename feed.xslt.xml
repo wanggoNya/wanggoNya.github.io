@@ -10,10 +10,11 @@
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <title>구독하기 · <xsl:value-of select="atom:title"/></title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,600;0,700;1,400&amp;family=Noto+Serif+KR:wght@400;600;700&amp;family=Fira+Mono:wght@400;500&amp;display=swap"/>
         <style>
           :root { --t: #1f3a68; --td: #14254a; --ts: #eef1f6; --l: #6b7280; --ls: #f3f4f6; --ink: #1f2328; --mut: #6b7280; --line: #e5e7eb; }
           * { box-sizing: border-box; }
-          body { margin: 0; background: #ffffff; color: var(--ink); font: 14px/1.7 "Pretendard", -apple-system, "Segoe UI", sans-serif; word-break: keep-all; }
+          body { margin: 0; background: #ffffff; color: var(--ink); font: 15px/1.7 "STIX Two Text", "Times New Roman", "Noto Serif KR", serif; word-break: keep-all; }
           main { max-width: 760px; margin: 0 auto; padding: 40px 16px 80px; }
           .card { background: var(--ls); border: 1px solid var(--line); border-left: 4px solid var(--td); border-radius: 6px; padding: 22px 24px; }
           h1 { margin: 0 0 6px; font-size: 22px; }
