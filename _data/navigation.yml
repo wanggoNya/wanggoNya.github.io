@@ -11,32 +11,3 @@ main:
 
   # - title: "Projects"
   #   url: /projects/
-
-  # - title: "Categories"
-  #  url: /categories/
-
-# sidebar navigation (categories)
-# 2022.02.15 sidebar update : simple ver.
-categories:
-  - title: "Kernel"
-    url: /categories/kernel/
-  - title: "System"
-    url: /categories/system/
-  - title: "Network"
-    url: /categories/network/
-  - title: "Linux"
-    url: /categories/linux/
-  - title: "Cloud"
-    url: /categories/cloud/
-  - title: "Programming"
-    url: /categories/programming/
-  - title: "Algorithm"
-    url: /categories/algorithm/
-  - title: "C/Rust"
-    url: /categories/crust/
-  - title: "OS"
-    url: /categories/os/
-  - title: "Security"
-    url: /categories/security/
-  - title: "Web"
-    url: /categories/web/

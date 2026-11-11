@@ -1,6 +1,7 @@
 {% comment %} 글 하단 (티스토리 스타일): 공유·구독 → 같은 카테고리 다른 글 → 태그 → 관련글 → 블로그 소개 {% endcomment %}
+{% comment %} 카테고리가 있으면 같은 카테고리 글, 없으면 전체 최근 글 기준 {% endcomment %}
 {% assign cat = page.categories | first %}
-{% assign cat_posts = site.categories[cat] %}
+{% if cat %}{% assign cat_posts = site.categories[cat] %}{% else %}{% assign cat_posts = site.posts %}{% endif %}
 
 <div class="post-footer">
   <div class="post-footer__actions">
@@ -23,8 +24,7 @@
     {% if start < 0 %}{% assign start = 0 %}{% endif %}
     <section class="post-footer__box">
       <h3 class="post-footer__box-title">
-        {% assign cat_url = cat | remove: "/" | slugify | prepend: "/categories/" | append: "/" %}
-        '<a href="{{ cat_url | relative_url }}">{{ cat }}</a>' 카테고리의 다른 글
+        {% if cat %}'{{ cat }}' 카테고리의 다른 글{% else %}다른 글{% endif %}
       </h3>
       <ul class="post-footer__list">
         {% for p in cat_posts offset: start limit: 5 %}

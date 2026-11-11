@@ -98,9 +98,10 @@ export function buildFrontMatter(original, meta) {
   fm.title = meta.title;
   if (meta.excerpt) fm.excerpt = meta.excerpt;
   else delete fm.excerpt;
-  fm.categories = meta.category ? [meta.category] : [];
+  if (meta.category) fm.categories = [meta.category];
+  else delete fm.categories;
   fm.tags = toList(meta.tags);
-  fm.permalink = meta.permalink || `/${(categoryKey(meta.category) || "etc").toLowerCase()}/${meta.slug}/`;
+  fm.permalink = meta.permalink || `/${(categoryKey(meta.category) || "notes").toLowerCase()}/${meta.slug}/`;
   fm.toc = !!meta.toc;
   if (meta.toc) fm.toc_sticky = true;
   else delete fm.toc_sticky;

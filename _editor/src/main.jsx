@@ -125,7 +125,7 @@ function Sidebar({ posts, currentPath, onOpen, onNew, open, onClose }) {
     for (const p of posts) {
       if (q && !p.path.toLowerCase().includes(q.toLowerCase())) continue;
       const { folder } = splitPath(p.path);
-      (g[folder || "기타"] ||= []).push(p);
+      (g[folder || "노트"] ||= []).push(p);
     }
     for (const k in g) g[k].sort((a, b) => b.path.localeCompare(a.path));
     return Object.entries(g).sort(([a], [b]) => a.localeCompare(b));
@@ -185,7 +185,7 @@ function App() {
   const [branch, setBranch] = useState(CONFIG.branch || "");
   const [posts, setPosts] = useState([]);
   const [doc, setDoc] = useState({ path: null, fm: {}, sha: null }); // 현재 편집 중인 원본
-  const [meta, setMeta] = useState(() => emptyMeta(CONFIG.categories?.[0]));
+  const [meta, setMeta] = useState(() => emptyMeta());
   const [slugTouched, setSlugTouched] = useState(false);
   const [status, setStatus] = useState({ kind: "idle", text: "" });
   const [dirty, setDirty] = useState(false);
@@ -307,7 +307,7 @@ function App() {
     if (!confirmLeave()) return;
     setSidebarOpen(false);
     setDoc({ path: null, fm: {}, sha: null });
-    setMeta(emptyMeta(CONFIG.categories?.[0]));
+    setMeta(emptyMeta());
     setSlugTouched(false);
     setDocBlocks([]);
     setDirty(false);
@@ -410,12 +410,6 @@ function App() {
     };
   });
 
-  const categories = useMemo(() => {
-    const set = new Set(CONFIG.categories || []);
-    if (meta.category) set.add(meta.category);
-    return [...set];
-  }, [meta.category]);
-
   return (
     <div className="ge-app">
       <Sidebar
@@ -494,15 +488,6 @@ function App() {
           />
 
           <div className="ge-props">
-            <Prop label="카테고리">
-              <select value={meta.category} onChange={(e) => update({ category: e.target.value })}>
-                {categories.map((c) => (
-                  <option key={c} value={c}>
-                    {c}
-                  </option>
-                ))}
-              </select>
-            </Prop>
             <Prop label="태그">
               <input
                 placeholder="쉼표로 구분 — study, cloud"
