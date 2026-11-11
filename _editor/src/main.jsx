@@ -70,7 +70,7 @@ function SettingsModal({ initialToken, onSave, onClose, canClose }) {
   return (
     <div className="ge-modal-backdrop" onClick={canClose ? onClose : undefined}>
       <div className="ge-modal" onClick={(e) => e.stopPropagation()}>
-        <h2>🍊 에디터 연결</h2>
+        <h2>에디터 연결</h2>
         <p>
           글을 저장하려면 <b>{CONFIG.repo}</b> 저장소에 쓸 수 있는 GitHub 토큰이 필요해요. 토큰은 이 브라우저에만 저장돼요.
         </p>
@@ -135,7 +135,7 @@ function Sidebar({ posts, currentPath, onOpen, onNew, open, onClose }) {
     <aside className={`ge-sidebar ${open ? "is-open" : ""}`}>
       <div className="ge-sidebar__head">
         <a className="ge-brand" href={CONFIG.baseurl + "/"}>
-          <span className="ge-brand__fruit">🍊</span> {CONFIG.title}
+          {CONFIG.title}
         </a>
         <button className="ge-icon-btn ge-only-mobile" onClick={onClose} aria-label="닫기">
           ✕

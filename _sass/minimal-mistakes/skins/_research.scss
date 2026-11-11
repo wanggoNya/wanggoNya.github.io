@@ -1,37 +1,37 @@
 /* ==========================================================================
-   Tangerine skin — 귤 + 연두
+   Research skin — 김수연의 연구개발 노트 (흑·회·백 + 남색)
    ========================================================================== */
 
 /* Colors */
-$tangerine: #ff8a1f;
-$tangerine-deep: #c95a00;
-$tangerine-soft: #fff1e0;
-$lime: #8dc63f;
-$lime-deep: #4e7a1e;
-$lime-soft: #f1f8e4;
+$accent: #1f3a68;       // 남색: 링크·강조
+$accent-deep: #14254a;  // 진한 남색
+$accent-soft: #eef1f6;  // 남색 기운의 옅은 회색: 선택·호버 배경
+$gray: #6b7280;         // 중간 회색
+$gray-deep: #374151;    // 진한 회색
+$gray-soft: #f3f4f6;    // 옅은 회색 배경
 
-$background-color: #fffdf8 !default;
-$text-color: #2b2a27 !default;
-$primary-color: $tangerine !default;
+$background-color: #ffffff !default;
+$text-color: #1f2328 !default;
+$primary-color: $accent !default;
 
-$border-color: #efe9df !default;
-$code-background-color: #fff4e6 !default;
+$border-color: #e5e7eb !default;
+$code-background-color: #f3f4f6 !default;
 $code-background-color-dark: rgba(185, 185, 185, 0.25) !default;
 
-$mark-highlight-color: rgba($lime, 0.3) !default;
-$block-quote-background-color: $lime-soft !default;
+$mark-highlight-color: rgba($accent, 0.12) !default;
+$block-quote-background-color: $gray-soft !default;
 $form-background-color: #fff !default;
-$footer-background-color: #fbf6ec !default;
-$link-color: $tangerine-deep !default;
+$footer-background-color: #f7f7f8 !default;
+$link-color: $accent !default;
 
-$link-color-hover: $tangerine !default;
-$link-color-visited: $tangerine-deep !default;
+$link-color-hover: $accent-deep !default;
+$link-color-visited: $accent !default;
 
 $masthead-link-color: $text-color !default;
-$masthead-link-color-hover: $tangerine-deep !default;
-$navicon-link-color-hover: $tangerine !default;
+$masthead-link-color-hover: $accent !default;
+$navicon-link-color-hover: $accent !default;
 
-$active-color: $tangerine-soft !default;
+$active-color: $accent-soft !default;
 
 /* YIQ color contrast */
 $yiq-contrasted-dark-default: $text-color !default;
@@ -39,45 +39,46 @@ $yiq-contrasted-light-default: #fff !default;
 $yiq-contrasted-threshold: 175 !default;
 $yiq-debug: false !default;
 
-/* syntax highlighting (base16, 귤빛 톤) */
-$base00: #fffaf2 !default;
-$base01: #f6ecdc !default;
-$base02: #ecdfca !default;
-$base03: #a59a88 !default;
-$base04: #6b6355 !default;
-$base05: #2b2a27 !default;
-$base06: #1f1e1c !default;
-$base07: #141312 !default;
-$base08: #d1495b !default;
-$base09: #e07a00 !default;
-$base0a: #b58900 !default;
-$base0b: #5f9a1f !default;
-$base0c: #2a9d8f !default;
-$base0d: #3a7bd5 !default;
-$base0e: #9b5de5 !default;
-$base0f: #c95a00 !default;
+/* syntax highlighting (base16, 차분한 회색 톤) */
+$base00: #f6f8fa !default;
+$base01: #eaeef2 !default;
+$base02: #d0d7de !default;
+$base03: #8c959f !default;
+$base04: #57606a !default;
+$base05: #1f2328 !default;
+$base06: #161b22 !default;
+$base07: #0d1117 !default;
+$base08: #cf222e !default;
+$base09: #953800 !default;
+$base0a: #7d4e00 !default;
+$base0b: #116329 !default;
+$base0c: #1b7c83 !default;
+$base0d: #0550ae !default;
+$base0e: #8250df !default;
+$base0f: #6e7781 !default;
 
 /* ---------- 상단 바 ---------- */
 .masthead {
   background-color: rgba($background-color, 0.95);
   border-bottom: 0;
 
-  &::after {
-    content: "";
-    display: block;
-    height: 3px;
-    background: linear-gradient(90deg, $tangerine 0%, #ffb347 55%, $lime 100%);
-  }
+  border-bottom: 1px solid $border-color;
 }
 
-.site-title::before {
-  content: "🍊";
-  margin-right: 0.3em;
+.site-title {
+  font-style: normal !important;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.archive__empty {
+  padding: 2em 0;
+  color: $gray;
 }
 
 /* ---------- 본문 ---------- */
 ::selection {
-  background: rgba($tangerine, 0.25);
+  background: rgba($accent, 0.25);
 }
 
 .page__title {
@@ -87,75 +88,70 @@ $base0f: #c95a00 !default;
 .page__content {
   a,
   a:visited {
-    color: $tangerine-deep;
-    text-decoration-color: rgba($tangerine, 0.4);
+    color: $accent-deep;
+    text-decoration-color: rgba($accent, 0.4);
   }
 
   a:hover {
-    color: $tangerine;
+    color: $accent;
   }
 
   h1 {
-    border-bottom: 2px solid $tangerine-soft;
+    border-bottom: 1px solid $border-color;
   }
 
   h2 {
     border-bottom: 0;
     padding-left: 0.6em;
-    border-left: 4px solid $tangerine;
-  }
-
-  h3::before {
-    content: "🌿 ";
-    font-size: 0.8em;
+    border-left: 4px solid $accent;
   }
 
   blockquote {
-    border-left-color: $lime;
-    background-color: $lime-soft;
-    border-radius: 0 8px 8px 0;
+    border-left-color: $gray-deep;
+    background-color: $gray-soft;
+    border-radius: 0 4px 4px 0;
   }
 
   code.highlighter-rouge {
-    color: $tangerine-deep;
+    color: $accent-deep;
   }
 
   img {
-    border-radius: 8px;
+    border-radius: 4px;
   }
 }
 
 /* 카테고리·태그 칩 */
 .page__taxonomy-item {
-  color: $lime-deep !important;
-  background-color: $lime-soft;
-  border-color: rgba($lime, 0.5);
-  border-radius: 999px;
+  color: $gray-deep !important;
+  background-color: $gray-soft;
+  border-color: rgba($gray, 0.5);
+  border-radius: 4px;
 
   &:hover {
-    background-color: $lime;
+    background-color: $gray;
     color: #fff !important;
   }
 }
 
 /* 목차 */
 .toc .nav__title {
-  background: $lime;
+  background: $gray-deep;
   color: #fff;
 }
 
 .toc__menu a:hover {
-  color: $tangerine-deep;
+  color: $accent-deep;
 }
 
 /* 왼쪽 카테고리 내비 */
 .nav__list .nav__items a:hover {
-  color: $tangerine-deep;
+  color: $accent-deep;
 }
 
 .nav__list .nav__items .active {
-  color: $tangerine-deep;
-  background-color: $tangerine-soft;
+  color: $accent-deep;
+  background-color: $accent-soft;
   border-radius: 6px;
 }
 
@@ -175,10 +171,10 @@ $base0f: #c95a00 !default;
   padding-bottom: 0.4em;
   font-size: 1rem;
   color: $text-color;
-  border-bottom: 2px solid $lime-soft;
+  border-bottom: 2px solid $gray-soft;
 
   .nav__count {
-    color: $lime-deep;
+    color: $gray-deep;
   }
 }
 
@@ -196,11 +192,11 @@ $base0f: #c95a00 !default;
   border-radius: 6px;
 
   &:hover {
-    background-color: $tangerine-soft;
+    background-color: $accent-soft;
   }
 
   &.active .nav__count {
-    color: $tangerine-deep;
+    color: $accent-deep;
   }
 
   &--empty {
@@ -210,16 +206,16 @@ $base0f: #c95a00 !default;
 
 /* 버튼·페이지네이션 */
 .btn--primary {
-  background-color: $tangerine;
+  background-color: $accent;
 
   &:hover {
-    background-color: $tangerine-deep;
+    background-color: $accent-deep;
   }
 }
 
 .pagination--pager {
   color: #fff;
-  background-color: $tangerine;
+  background-color: $accent;
   border-color: transparent;
 
   &:visited {
@@ -227,12 +223,12 @@ $base0f: #c95a00 !default;
   }
 
   &:hover {
-    background-color: $lime;
+    background-color: $gray;
   }
 }
 
 .pagination li a.current {
-  background: $tangerine;
+  background: $accent;
   color: #fff;
 }
 
@@ -241,7 +237,7 @@ $base0f: #c95a00 !default;
   color: $text-color;
 
   &:hover {
-    color: $tangerine-deep;
+    color: $accent-deep;
   }
 }
 
@@ -305,7 +301,7 @@ body {
   height: 108px;
   border-radius: 10px;
   overflow: hidden;
-  background: $tangerine-soft;
+  background: $accent-soft;
   border: 1px solid $border-color;
 
   img {
@@ -324,7 +320,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, $tangerine-soft, $lime-soft);
+    background: $gray-soft;
     font-size: 2.2em;
   }
 }
@@ -342,7 +338,7 @@ body {
 
 /* 프로필 */
 .author__avatar img {
-  border: 3px solid $lime-soft;
+  border: 3px solid $gray-soft;
 }
 
 .author__urls.social-icons i,
@@ -353,7 +349,7 @@ body {
 }
 
 .page__footer {
-  border-top: 3px solid $lime-soft;
+  border-top: 3px solid $gray-soft;
 }
 
 .ais-search-box .ais-search-box--input {
@@ -655,8 +651,8 @@ $resume-mist: #f4f6fa;
   align-items: center;
   gap: 0.35em;
   padding: 0.35em 0.95em;
-  border: 1px solid #d9d4ca;
-  border-radius: 999px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
   background: #fff;
   color: $text-color !important;
   font: inherit;
@@ -665,8 +661,8 @@ $resume-mist: #f4f6fa;
   transition: border-color 0.15s, color 0.15s;
 
   &:hover {
-    border-color: $tangerine;
-    color: $tangerine-deep !important;
+    border-color: $accent;
+    color: $accent-deep !important;
   }
 }
 
@@ -685,7 +681,7 @@ $resume-mist: #f4f6fa;
 
   a {
     font-weight: 700;
-    color: $tangerine-deep !important;
+    color: $accent-deep !important;
   }
 }
 
@@ -704,7 +700,7 @@ $resume-mist: #f4f6fa;
     color: mix($text-color, $background-color, 80%) !important;
 
     &:hover {
-      color: $tangerine-deep !important;
+      color: $accent-deep !important;
       text-decoration: underline;
     }
   }
@@ -739,8 +735,8 @@ $resume-mist: #f4f6fa;
   li {
     margin: 0;
     padding: 0.25em 0.9em;
-    border: 1px solid #d9d4ca;
-    border-radius: 999px;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
     background: #fff;
     font-size: 0.9em;
   }
@@ -757,7 +753,7 @@ $resume-mist: #f4f6fa;
   color: $text-color !important;
 
   &:hover .post-footer__card-title {
-    color: $tangerine-deep;
+    color: $accent-deep;
   }
 
   &:hover img {
@@ -771,7 +767,7 @@ $resume-mist: #f4f6fa;
   justify-content: center;
   aspect-ratio: 16 / 10;
   overflow: hidden;
-  background: $tangerine-soft;
+  background: $accent-soft;
   font-size: 1.8em;
 
   img {
@@ -785,7 +781,7 @@ $resume-mist: #f4f6fa;
   }
 
   &.is-empty {
-    background: linear-gradient(135deg, $tangerine-soft, $lime-soft);
+    background: $gray-soft;
   }
 }
 
@@ -804,7 +800,7 @@ $resume-mist: #f4f6fa;
   align-items: flex-start;
   gap: 1.2em;
   padding: 1.6em 1.6em 2.4em;
-  background: #f3f1ec;
+  background: #f5f6f8;
 }
 
 .post-footer__blog-title {
@@ -841,7 +837,7 @@ $resume-mist: #f4f6fa;
   max-width: calc(100vw - 32px);
   padding: 1.6em 1.6em 1.3em;
   border: 0;
-  border-top: 5px solid $tangerine;
+  border-top: 5px solid $accent;
   border-radius: 14px;
   background: #fff;
   color: $text-color;
@@ -891,8 +887,8 @@ $resume-mist: #f4f6fa;
   margin-bottom: 1em;
 
   .is-primary {
-    background: $tangerine;
-    border-color: $tangerine;
+    background: $accent;
+    border-color: $accent;
     color: #fff !important;
   }
 }
@@ -920,13 +916,13 @@ $resume-mist: #f4f6fa;
 
 .owner-tools__btn {
   padding: 0.55em 1.1em;
-  border-radius: 999px;
+  border-radius: 4px;
   font-size: 0.8em;
   font-weight: 700;
   text-decoration: none;
   color: #fff !important;
-  background: $tangerine;
-  box-shadow: 0 4px 14px rgba($tangerine-deep, 0.35);
+  background: $accent;
+  box-shadow: 0 4px 14px rgba($accent-deep, 0.35);
   transition: transform 0.15s;
 
   &:hover {
@@ -934,7 +930,7 @@ $resume-mist: #f4f6fa;
   }
 
   &--new {
-    background: $lime;
-    box-shadow: 0 4px 14px rgba($lime-deep, 0.3);
+    background: $gray;
+    box-shadow: 0 4px 14px rgba($gray-deep, 0.3);
   }
 }

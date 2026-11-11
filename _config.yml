@@ -13,23 +13,23 @@
 # theme                  : "minimal-mistakes-jekyll"
 # remote_theme           : "mmistakes/minimal-mistakes"
 
-# 귤·연두 커스텀 스킨 사용. 색을 바꾸려면 _sass/minimal-mistakes/skins/_tangerine.scss 에서 변경
+# 연구개발 노트 스킨 사용. 색을 바꾸려면 _sass/minimal-mistakes/skins/_research.scss 에서 변경
 # 해당 디렉토리 내의 다른 테마로 변경 가능 (minimal-mistakes 기본 제공 테마)
-minimal_mistakes_skin: "tangerine" # 귤·연두 커스텀 스킨 (_sass/minimal-mistakes/skins/_tangerine.scss). 예전 색은 "plum"
+minimal_mistakes_skin: "research" # 연구개발 노트 스킨: 흑·회·백 + 남색 (_sass/minimal-mistakes/skins/_research.scss)
 
 # Site Settings
 locale: "ko-KR" #"en-US"
-title: "wanggoNya Story" # 상단 헤더에 보이는 블로그 명
+title: "김수연의 연구개발 노트" # 상단 헤더에 보이는 블로그 명
 title_separator: "&#124;"
 subtitle: # site tagline that appears below site title in masthead
-name: "wanggoNya" # 블로그 닉네임 설정
-description: "C언어 개발자 왕고냐의 기술 블로그 | Computer Science & Security, Linux, Cloud, DevOps에 관심 있음." # 블로그 설명
+name: "김수연" # 블로그 운영자 이름 (탭 제목에 표시)
+description: "System, Network, Linux Kernel을 연구하고 개발하며 남기는 기록" # 블로그 설명
 url: "https://wanggonya.github.io" # 블로그 URL (끝에 / 없이)
 baseurl: # the subpath of your site, e.g. "/blog"
 repository: "wanggoNya/wanggoNya.github.io" # GitHub Repo 이름
 teaser: #
 
-logo: "assets/images/profileLogo.png" # 블로그명 앞에 로고 추가하고 싶을 경우 사용
+logo: # 블로그명 앞에 로고 (비워 두면 표시 안 함)
 masthead_title: # overrides the website title displayed in the masthead, use " " for no title
 # breadcrumbs            : false # true, false (default)
 words_per_minute: 200
@@ -103,7 +103,7 @@ analytics:
 
 # Site Author
 author:
-  name: "wanggoNya" # 블로그 닉네임
+  name: "김수연" # 작성자 이름
   avatar: "/assets/images/profile.png" # 블로그 프로필 사진
   #   bio              : "hi all!"
   location: "Seoul, Korea"

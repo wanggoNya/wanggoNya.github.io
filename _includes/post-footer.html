@@ -57,7 +57,7 @@
       {% include first-image.html doc=p %}
       <a class="post-footer__card" href="{{ p.url | relative_url }}">
         <span class="post-footer__card-thumb{% unless first_image %} is-empty{% endunless %}">
-          {% if first_image %}<img src="{{ first_image }}" alt="" loading="lazy">{% else %}🍊{% endif %}
+          {% if first_image %}<img src="{{ first_image }}" alt="" loading="lazy">{% else %}<i class="far fa-file-alt" aria-hidden="true"></i>{% endif %}
         </span>
         <span class="post-footer__card-title">{{ p.title | escape_once }}</span>
       </a>
@@ -86,7 +86,7 @@
   <form method="dialog">
     <button class="subscribe-dialog__close" aria-label="닫기">✕</button>
   </form>
-  <h3>🍊 {{ site.title }} 구독하기</h3>
+  <h3>{{ site.title }} 구독하기</h3>
   <p>RSS 리더 앱에 추가하면 새 글이 올라올 때마다 받아볼 수 있어요.</p>
   <div class="subscribe-dialog__btns">
     <a class="post-footer__btn is-primary" href="https://feedly.com/i/subscription/feed%2F{{ feed_url | url_encode }}" target="_blank" rel="noopener">Feedly로 구독</a>

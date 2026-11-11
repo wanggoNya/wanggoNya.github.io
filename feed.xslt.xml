@@ -11,15 +11,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <title>구독하기 · <xsl:value-of select="atom:title"/></title>
         <style>
-          :root { --t: #ff8a1f; --td: #c95a00; --ts: #fff1e0; --l: #8dc63f; --ls: #f1f8e4; --ink: #2b2a27; --mut: #8a857c; --line: #efe9df; }
+          :root { --t: #1f3a68; --td: #14254a; --ts: #eef1f6; --l: #6b7280; --ls: #f3f4f6; --ink: #1f2328; --mut: #6b7280; --line: #e5e7eb; }
           * { box-sizing: border-box; }
-          body { margin: 0; background: #fffdf8; color: var(--ink); font: 14px/1.7 "Pretendard", -apple-system, "Segoe UI", sans-serif; word-break: keep-all; }
+          body { margin: 0; background: #ffffff; color: var(--ink); font: 14px/1.7 "Pretendard", -apple-system, "Segoe UI", sans-serif; word-break: keep-all; }
           main { max-width: 760px; margin: 0 auto; padding: 40px 16px 80px; }
-          .card { background: linear-gradient(135deg, var(--ts), var(--ls)); border: 1px solid var(--line); border-radius: 14px; padding: 22px 24px; }
+          .card { background: var(--ls); border: 1px solid var(--line); border-left: 4px solid var(--td); border-radius: 6px; padding: 22px 24px; }
           h1 { margin: 0 0 6px; font-size: 22px; }
           .desc { margin: 0 0 14px; color: var(--mut); }
           .btns { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
-          .btn { display: inline-block; padding: 7px 14px; border-radius: 999px; text-decoration: none; font-weight: 700; font-size: 13px; background: #fff; color: var(--ink); border: 1px solid #d9d4ca; }
+          .btn { display: inline-block; padding: 7px 14px; border-radius: 4px; text-decoration: none; font-weight: 700; font-size: 13px; background: #fff; color: var(--ink); border: 1px solid #d1d5db; }
           .btn.primary { background: var(--t); color: #fff; border-color: var(--t); }
           code { background: #fff; border: 1px solid var(--line); border-radius: 6px; padding: 2px 8px; font-size: 12px; word-break: break-all; }
           h2 { font-size: 15px; margin: 34px 0 10px; }
@@ -33,7 +33,7 @@
       <body>
         <main>
           <div class="card">
-            <h1>🍊 <xsl:value-of select="atom:title"/> 구독하기</h1>
+            <h1><xsl:value-of select="atom:title"/> 구독하기</h1>
             <p class="desc">이 페이지는 RSS 피드예요. 아래 버튼으로 RSS 리더 앱에 추가하면 새 글이 올라올 때마다 받아볼 수 있어요.</p>
             <div>피드 주소: <code><xsl:value-of select="atom:link[@rel='self']/@href"/></code></div>
             <div class="btns">

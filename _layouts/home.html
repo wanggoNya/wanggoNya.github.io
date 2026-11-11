@@ -17,6 +17,9 @@ layout: archive
   {% for post in posts %}
     {% include archive-single.html type=entries_layout %}
   {% endfor %}
+  {% if posts.size == 0 %}
+    <p class="archive__empty">아직 작성된 연구 노트가 없습니다.</p>
+  {% endif %}
 </div>
 
 {% include paginator.html %}
